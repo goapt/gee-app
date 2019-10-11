@@ -19,9 +19,8 @@ example
 ## 使用方法
 1. `git clone https://github.com/goapt/gee-app.git app`
 2. `go mod tidy`
-3. 执行 `make conf` 同步开发环境配置文件.env到app根目录
-4. 修改 `config.toml` 配置信息，如 `app_name` `storage_path` 等
-6. `make` 编译
+3. 修改 `config.toml` 配置信息，如 `app_name` `storage_path` 等
+4. `make` 编译
 
 ## Http Server
 如果项目是一个http的接口项目，路由在`router`包中管理，`handler` 写到 `handler` 包，使用如下命令行启动
