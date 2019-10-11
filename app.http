@@ -1,0 +1,14 @@
+POST http://localhost:8080/login
+Accept: */*
+Cache-Control: no-cache
+
+{"user_name":"test","password":"123456"}
+
+###
+
+POST http://localhost:8080/api/user
+Accept: */*
+Cache-Control: no-cache
+Access-Token: 4xgCqZpNHGyEwSHshM6ocg==
+
+###
