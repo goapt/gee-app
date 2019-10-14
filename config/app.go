@@ -34,12 +34,32 @@ func init() {
 	load(gee.ExtCliArgs)
 }
 
+// 判断是否为测试执行
+func isTestMode() bool {
+	// test执行文件的路径后缀带.test，生产环境的可执行文件，不可能带.test后缀
+	if strings.HasSuffix(os.Args[0], ".test") {
+		return true
+	}
+
+	testVars := map[string]bool{
+		"-test.v":   true,
+		"-test.run": true,
+	}
+
+	for _, str := range os.Args {
+		if testVars[str] {
+			return true
+		}
+	}
+
+	return false
+}
+
 func load(args map[string]string) {
 	appPath := args["config"]
 
 	if appPath == "" {
-		//由于go test执行路径是临时目录，因此寻找配置文件要从编译路径查找
-		if strings.HasSuffix(os.Args[0], ".test") {
+		if isTestMode() {
 			App.IsTesting = true
 			_, file, _, _ := runtime.Caller(0)
 			appPath = filepath.Dir(filepath.Dir(file))
