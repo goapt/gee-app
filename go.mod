@@ -10,7 +10,7 @@ require (
 	github.com/goapt/gee v1.1.1
 	github.com/goapt/golib v1.0.3
 	github.com/goapt/logger v1.1.10
-	github.com/ilibs/gosql/v2 v2.0.0
+	github.com/ilibs/gosql/v2 v2.0.1
 	github.com/leodido/go-urn v1.1.0 // indirect
 	github.com/pelletier/go-toml v1.5.0
 	github.com/stretchr/testify v1.4.0
