@@ -23,6 +23,8 @@ github.com/go-sql-driver/mysql v1.4.1 h1:g24URVg0OFbNUTx9qqY1IRZ9D9z3iPyi5zKhQZp
 github.com/go-sql-driver/mysql v1.4.1/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
 github.com/goapt/gee v1.1.1 h1:9rCuz7rN8gjzuB+iK1RDfrsh4D33xWY3YcEpdaiELAM=
 github.com/goapt/gee v1.1.1/go.mod h1:UhpwAKM1FaYXRrBHh7sr+w+2hEb7QWkP3szgCA+ev7k=
+github.com/goapt/gee v1.1.2 h1:jlDZzFzgRPZlMadnXcqbNmcOuGKmwumVzKpp+DR75XE=
+github.com/goapt/gee v1.1.2/go.mod h1:UhpwAKM1FaYXRrBHh7sr+w+2hEb7QWkP3szgCA+ev7k=
 github.com/goapt/golib v1.0.0/go.mod h1:8BjoZBwPfe8JwZrwNpZ5Iv1cKFLWRCJrPCg8e1dNXPE=
 github.com/goapt/golib v1.0.3 h1:DcDhqFOhZqc3XhrjPfTQDOsnLDdDH8muzxQjrP4W38s=
 github.com/goapt/golib v1.0.3/go.mod h1:Ar54R5MivkzZ3BJwnev+qDxrwYcUTArbZBcsaGy52R8=
