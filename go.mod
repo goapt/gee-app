@@ -5,7 +5,7 @@ go 1.12
 require (
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-playground/locales v0.13.0
-	github.com/go-playground/universal-translator v0.16.0
+	github.com/go-playground/universal-translator v0.17.0
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/goapt/gee v1.1.1
 	github.com/goapt/golib v1.0.3
