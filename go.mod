@@ -4,8 +4,6 @@ go 1.12
 
 require (
 	github.com/gin-gonic/gin v1.4.0
-	github.com/go-playground/locales v0.13.0
-	github.com/go-playground/universal-translator v0.17.0
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/goapt/gee v1.1.4
 	github.com/goapt/golib v1.0.3
@@ -16,5 +14,4 @@ require (
 	github.com/tidwall/gjson v1.3.5
 	github.com/urfave/cli v1.22.1
 	google.golang.org/appengine v1.6.5 // indirect
-	gopkg.in/go-playground/validator.v9 v9.30.0
 )
