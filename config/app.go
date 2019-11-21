@@ -81,7 +81,7 @@ func load(args map[string]string) {
 		App.StoragePath = filepath.Join(appPath, App.StoragePath)
 	}
 
-	if App.Env == "local" {
+	if App.Env == "local" && !isTestMode() {
 		gin.SetMode(gin.DebugMode)
 	} else {
 		gin.SetMode(gin.ReleaseMode)

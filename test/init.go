@@ -1,18 +1,16 @@
-package testutil
+package test
 
 import (
 	"github.com/goapt/golib/debug"
 	"github.com/goapt/logger"
 
-	"app/config"
-
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/ilibs/gosql/v2"
+
+	"app/config"
 )
 
 func init() {
-	//db connect
-	_ = gosql.Connect(config.App.DB)
+	config.Bootstrap()
 
 	debug.Open("on", "")
 	logger.Setting(func(c *logger.Config) {

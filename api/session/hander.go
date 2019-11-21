@@ -14,7 +14,7 @@ func (h Handler) Handle(c *gee.Context) gee.Response {
 	user := &model.Users{}
 	err := gosql.Model(user).Where("id = ?", c.GetString("user_id")).Get()
 	if err != nil {
-		return c.Fail(40001, err)
+		return c.Fail(40002, err)
 	}
 	return h(user, c)
 }

@@ -38,7 +38,7 @@ var LoginHandle gee.HandlerFunc = func(c *gee.Context) gee.Response {
 		return c.Fail(201, "密码错误")
 	}
 
-	fmt.Println("===>",config.App.TokenSecret)
+	fmt.Println("===>", config.App.TokenSecret)
 	token, err := util.AesEncrypt(config.App.TokenSecret, strconv.Itoa(user.Id))
 
 	if err != nil {

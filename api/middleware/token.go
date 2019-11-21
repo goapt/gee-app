@@ -11,7 +11,6 @@ import (
 var TokenMiddleware = func() gin.HandlerFunc {
 	var fn gee.HandlerFunc = func(c *gee.Context) gee.Response {
 		token := c.GetToken()
-
 		if token == "" {
 			return c.Fail(40001, "请先登录")
 		}
