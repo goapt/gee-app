@@ -1,13 +1,12 @@
 package cmd
 
 import (
-	"github.com/goapt/gee"
 	"github.com/urfave/cli"
 
 	"app/api/router"
 )
 
-var HTTPCmd = cli.Command{
+var httpCmd = cli.Command{
 	Name:  "http",
 	Usage: "http command eg: ./app http --addr=:8080",
 	Flags: []cli.Flag{
@@ -25,8 +24,4 @@ var HTTPCmd = cli.Command{
 
 		return nil
 	},
-}
-
-func init() {
-	gee.RegisterCommand(HTTPCmd)
 }

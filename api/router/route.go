@@ -10,7 +10,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/goapt/gee"
-	"github.com/goapt/golib/osutil"
 
 	"app/api/handler"
 	"app/api/middleware"
@@ -40,8 +39,8 @@ func Setup(addr string) {
 		Addr:    addr,
 		Handler: Engine(),
 	}
-
-	osutil.RegisterShutDown(func(sig os.Signal) {
+	log.Println("[HTTP] Server listen:" + addr)
+	gee.RegisterShutDown(func(sig os.Signal) {
 		ctxw, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 		_ = srv.Close()

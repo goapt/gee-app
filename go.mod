@@ -3,15 +3,16 @@ module app
 go 1.12
 
 require (
+	github.com/certifi/gocertifi v0.0.0-20191021191039-0944d244cd40 // indirect
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-sql-driver/mysql v1.4.1
-	github.com/goapt/gee v1.1.4
-	github.com/goapt/golib v1.0.3
+	github.com/goapt/gee v1.2.0
+	github.com/goapt/golib v1.0.4
 	github.com/goapt/logger v1.1.10
-	github.com/ilibs/gosql/v2 v2.0.0
-	github.com/pelletier/go-toml v1.5.0
+	github.com/ilibs/gosql/v2 v2.0.1
+	github.com/pelletier/go-toml v1.6.0
 	github.com/stretchr/testify v1.4.0
 	github.com/tidwall/gjson v1.3.5
-	github.com/urfave/cli v1.22.1
+	github.com/urfave/cli v1.22.2
 	google.golang.org/appengine v1.6.5 // indirect
 )

@@ -5,13 +5,12 @@ import (
 
 	"app/model"
 
-	"github.com/goapt/gee"
 	"github.com/goapt/logger"
 	"github.com/ilibs/gosql/v2"
 	"github.com/urfave/cli"
 )
 
-var TestCmd = cli.Command{
+var testCmd = cli.Command{
 	Name:  "test",
 	Usage: "test command eg: ./app test --id=7",
 	Flags: []cli.Flag{
@@ -37,8 +36,4 @@ var TestCmd = cli.Command{
 		logger.Error("test", user)
 		return nil
 	},
-}
-
-func init() {
-	gee.RegisterCommand(TestCmd)
 }
