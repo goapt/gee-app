@@ -29,6 +29,8 @@ github.com/go-playground/validator/v10 v10.0.1/go.mod h1:uOYAAleCW8F/7oMFd6aG0GO
 github.com/go-sql-driver/mysql v1.4.0/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
 github.com/go-sql-driver/mysql v1.4.1 h1:g24URVg0OFbNUTx9qqY1IRZ9D9z3iPyi5zKhQZpNwpA=
 github.com/go-sql-driver/mysql v1.4.1/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
+github.com/go-sql-driver/mysql v1.5.0 h1:ozyZYNQW3x3HtqT1jira07DN2PArx2v7/mN66gGcHOs=
+github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 github.com/goapt/gee v1.1.4 h1:/zW38a0zXRCPN+TNG9/QX8Qyt2owLkYyhkelnTdn2gs=
 github.com/goapt/gee v1.1.4/go.mod h1:z2FPV2f7kFsuKqLuk1qdxlSY464LEM3yhd9QJgJiuME=
 github.com/goapt/gee v1.2.0 h1:LqWhQCB0fl9fYKTCmcWcn8/CEmZVOLFL41Ji9safSLQ=
