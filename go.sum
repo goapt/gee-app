@@ -29,6 +29,7 @@ github.com/go-playground/validator/v10 v10.0.1/go.mod h1:uOYAAleCW8F/7oMFd6aG0GO
 github.com/go-sql-driver/mysql v1.4.0/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
 github.com/go-sql-driver/mysql v1.4.1 h1:g24URVg0OFbNUTx9qqY1IRZ9D9z3iPyi5zKhQZpNwpA=
 github.com/go-sql-driver/mysql v1.4.1/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
+github.com/go-sql-driver/mysql v1.5.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
 github.com/goapt/gee v1.1.4 h1:/zW38a0zXRCPN+TNG9/QX8Qyt2owLkYyhkelnTdn2gs=
 github.com/goapt/gee v1.1.4/go.mod h1:z2FPV2f7kFsuKqLuk1qdxlSY464LEM3yhd9QJgJiuME=
 github.com/goapt/gee v1.2.0 h1:LqWhQCB0fl9fYKTCmcWcn8/CEmZVOLFL41Ji9safSLQ=
@@ -52,6 +53,8 @@ github.com/ilibs/gosql/v2 v2.0.0 h1:+ALfuR7TcJtl1W2U6W6XZdxqMFhpUZcfZi89LcP3j5c=
 github.com/ilibs/gosql/v2 v2.0.0/go.mod h1:YSNJ2DcVQSdCpHrPCNkdjRtUKLnECeXPcGhaz3rnE00=
 github.com/ilibs/gosql/v2 v2.0.1 h1:tTryHWoo2z7wp2v7//+wv2rPlrWhEyMk5PAvR0j8P0w=
 github.com/ilibs/gosql/v2 v2.0.1/go.mod h1:YSNJ2DcVQSdCpHrPCNkdjRtUKLnECeXPcGhaz3rnE00=
+github.com/ilibs/gosql/v2 v2.0.2 h1:JpFk3zublDhwQj5vA/Cy9J8zDnDAM+dhzKlkc2LJ/wY=
+github.com/ilibs/gosql/v2 v2.0.2/go.mod h1:kU5sf2paHLCtYaM446ZHYBxwlFo4Kuk/BGrKEJfb7x4=
 github.com/ilibs/jsontime v1.0.2 h1:s/OVilyGoB2CYHrGddtD/+O7kPg6QTwEHKDFaUeZyMs=
 github.com/ilibs/jsontime v1.0.2/go.mod h1:ed0oTz2QgR97BUNmIMEH5iqyff6s3zzcggt0qjuHO0c=
 github.com/jmoiron/sqlx v1.2.0 h1:41Ip0zITnmWNR/vHV+S4m+VoUivnWY5E4OJfLZjCJMA=
