@@ -9,7 +9,7 @@ require (
 	github.com/goapt/gee v1.2.0
 	github.com/goapt/golib v1.0.4
 	github.com/goapt/logger v1.1.10
-	github.com/ilibs/gosql/v2 v2.0.1
+	github.com/ilibs/gosql/v2 v2.0.2
 	github.com/pelletier/go-toml v1.6.0
 	github.com/stretchr/testify v1.4.0
 	github.com/tidwall/gjson v1.3.5
