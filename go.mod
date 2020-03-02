@@ -6,7 +6,7 @@ require (
 	github.com/certifi/gocertifi v0.0.0-20191021191039-0944d244cd40 // indirect
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-sql-driver/mysql v1.4.1
-	github.com/goapt/gee v1.2.0
+	github.com/goapt/gee v1.3.0
 	github.com/goapt/golib v1.0.4
 	github.com/goapt/logger v1.1.10
 	github.com/ilibs/gosql/v2 v2.0.2
