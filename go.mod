@@ -12,7 +12,7 @@ require (
 	github.com/ilibs/gosql/v2 v2.0.2
 	github.com/pelletier/go-toml v1.6.0
 	github.com/stretchr/testify v1.5.1
-	github.com/tidwall/gjson v1.5.0
+	github.com/tidwall/gjson v1.6.0
 	github.com/urfave/cli v1.22.2
 	google.golang.org/appengine v1.6.5 // indirect
 )
