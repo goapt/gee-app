@@ -4,9 +4,12 @@ import (
 	"github.com/goapt/gee"
 
 	"app/api/session"
-	"app/model"
 )
 
-var UserHandle session.Handler = func(s *model.Users, c *gee.Context) gee.Response {
-	return c.Success(s)
+var UserHandle gee.HandlerFunc = func(c *gee.Context) gee.Response {
+	sess, err := session.Init(c)
+	if err != nil {
+		return c.Fail(201, "session init error")
+	}
+	return c.Success(sess.User)
 }

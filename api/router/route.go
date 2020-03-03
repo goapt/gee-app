@@ -7,30 +7,26 @@ import (
 	"os"
 	"time"
 
-	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/gin/binding"
 	"github.com/goapt/gee"
 
 	"app/api/handler"
 	"app/api/middleware"
 )
 
-func Engine() *gin.Engine {
-	binding.Validator = new(gee.DefaultValidator)
-
-	router := gin.Default()
+func Engine() *gee.Engine {
+	router := gee.Default()
 	// log middleware use for all handle
-	router.POST("/login", gee.Handle(handler.LoginHandle))
+	router.POST("/login", handler.LoginHandle)
 
 	// session middleware use for authorized handle
 	api := router.Group("/api")
-	api.Use(middleware.TokenMiddleware())
+	api.Use(middleware.SessionMiddleware())
 	{
-		api.POST("/user", gee.Handle(handler.UserHandle))
+		api.POST("/user", handler.UserHandle)
 	}
 
 	//debug handler
-	gee.DebugRoute(router)
+	gee.DebugRoute(router.Engine)
 	return router
 }
 

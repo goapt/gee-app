@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"fmt"
 	"strconv"
 
+	"app/api/session"
 	"app/config"
 	"app/model"
-	"app/util"
+	"app/pkg/cryptutil"
 
 	"github.com/gin-gonic/gin"
 	"github.com/goapt/gee"
@@ -38,11 +38,19 @@ var LoginHandle gee.HandlerFunc = func(c *gee.Context) gee.Response {
 		return c.Fail(201, "密码错误")
 	}
 
-	fmt.Println("===>", config.App.TokenSecret)
-	token, err := util.AesEncrypt(config.App.TokenSecret, strconv.Itoa(user.Id))
+	token, err := cryptutil.AesEncrypt(config.App.TokenSecret, strconv.Itoa(user.Id))
 
 	if err != nil {
 		return c.Fail(202, err)
+	}
+
+	// 构造session数据
+	sess := session.New()
+	sess.User = user
+	err = sess.Save(strconv.Itoa(user.Id))
+
+	if err != nil {
+		return c.Fail(201, "session save error")
 	}
 
 	return c.Success(gin.H{

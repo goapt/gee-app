@@ -1,4 +1,4 @@
-package util
+package cryptutil
 
 import (
 	"encoding/base64"
