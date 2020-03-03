@@ -17,6 +17,4 @@ require (
 	github.com/tidwall/gjson v1.6.0
 	github.com/urfave/cli v1.22.2
 	golang.org/x/sys v0.0.0-20200302150141-5c8b2ff67527 // indirect
-	google.golang.org/appengine v1.6.5 // indirect
-	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 )
