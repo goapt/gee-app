@@ -10,6 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/goapt/gee"
+	"github.com/goapt/redis"
 	"github.com/ilibs/gosql/v2"
 	"github.com/pelletier/go-toml"
 )
@@ -21,6 +22,7 @@ type app struct {
 	Debug       string                   `toml:"debug"`
 	TokenSecret string                   `toml:"token_secret"`
 	DB          map[string]*gosql.Config `toml:"database"`
+	Redis       map[string]redis.Config  `toml:"redis"`
 	StartTime   time.Time
 	IsTesting   bool
 }

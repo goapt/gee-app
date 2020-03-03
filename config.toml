@@ -12,3 +12,9 @@ token_secret = "abcdefghijklmnop"
     max_open_conns= 10
     max_idle_conns = 5
     show_sql = false
+
+[redis]
+    [redis.default]
+    server = ""
+    password = ""
+    db = 0

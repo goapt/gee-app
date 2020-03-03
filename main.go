@@ -9,9 +9,8 @@ import (
 )
 
 func main() {
-	cmds := cmd.Boostrap()
 	config.Bootstrap()
 	//server setup
 	cliServ := gee.NewCliServer()
-	cliServ.Run(cmds)
+	cliServ.Run(cmd.Commands())
 }

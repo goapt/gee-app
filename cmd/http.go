@@ -25,3 +25,7 @@ var httpCmd = cli.Command{
 		return nil
 	},
 }
+
+func init() {
+	register(httpCmd)
+}

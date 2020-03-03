@@ -37,3 +37,7 @@ var testCmd = cli.Command{
 		return nil
 	},
 }
+
+func init() {
+	register(testCmd)
+}
