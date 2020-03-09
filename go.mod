@@ -15,6 +15,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.5.1
 	github.com/tidwall/gjson v1.6.0
-	github.com/urfave/cli v1.22.2
+	github.com/urfave/cli v1.22.3
 	golang.org/x/sys v0.0.0-20200302150141-5c8b2ff67527 // indirect
 )
