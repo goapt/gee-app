@@ -1,21 +1,5 @@
 # Gee Application
 
-## 目录结构
-
-```
-example
-    ├── bin       //编译后的bin文件
-    ├── cmd       //命令行程序
-    ├── config    //配置文件
-    ├── core      //核心文件
-    ├── handler   //http handler
-    ├── model     //数据表结构定义
-    ├── router    //http 路由和中间件
-    ├── session   //session结构定义
-    ├── storage   //存储
-    └── util       //辅助方法
-```
-
 ## 使用方法
 1. `git clone https://github.com/goapt/gee-app.git app`
 2. `go mod tidy`
