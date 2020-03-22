@@ -19,7 +19,7 @@ var httpCmd = cli.Command{
 		if !ctx.IsSet("addr") {
 			_ = ctx.Set("addr", ":8080")
 		}
-		//router
+		// router
 		router.Setup(ctx.String("addr"))
 
 		return nil

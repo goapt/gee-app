@@ -3,12 +3,12 @@ package model
 import "time"
 
 type Users struct {
-	Id         int       `json:"id" db:"id"`                                                     //用户ID
-	UserName   string    `json:"user_name" db:"user_name"`                                       //登录名
-	Password   string    `json:"password" db:"password"`                                         //登录密码
-	Status     int       `json:"status" db:"status"`                                             //1正常 0停用，2待激活
-	CreateTime time.Time `json:"create_time" db:"create_time" time_format:"2006-01-02 15:04:05"` //创建时间
-	UpdateTime time.Time `json:"update_time" db:"update_time" time_format:"2006-01-02 15:04:05"` //修改时间
+	Id         int       `json:"id" db:"id"`                                                     // 用户ID
+	UserName   string    `json:"user_name" db:"user_name"`                                       // 登录名
+	Password   string    `json:"password" db:"password"`                                         // 登录密码
+	Status     int       `json:"status" db:"status"`                                             // 1正常 0停用，2待激活
+	CreateTime time.Time `json:"create_time" db:"create_time" time_format:"2006-01-02 15:04:05"` // 创建时间
+	UpdateTime time.Time `json:"update_time" db:"update_time" time_format:"2006-01-02 15:04:05"` // 修改时间
 }
 
 func (this *Users) TableName() string {

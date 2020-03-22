@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/goapt/envconf"
 	"github.com/goapt/gee"
 	"github.com/goapt/redis"
 	"github.com/ilibs/gosql/v2"
-	"github.com/pelletier/go-toml"
 )
 
 type app struct {
@@ -70,9 +70,14 @@ func load(args map[string]string) {
 		}
 	}
 
-	conf, err := toml.LoadFile(filepath.Join(appPath, "config.toml"))
+	conf, err := envconf.New(filepath.Join(appPath, "config.toml"))
 	if err != nil {
 		log.Fatalf("config error %s", err.Error())
+	}
+
+	// load env config
+	if err := conf.Env(filepath.Join(appPath, ".env")); err != nil {
+		log.Fatal("config env error:", err)
 	}
 
 	if err := conf.Unmarshal(App); err != nil {
@@ -89,7 +94,7 @@ func load(args map[string]string) {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	//debug model
+	// debug model
 	if args["debug"] != "" {
 		App.Debug = args["debug"]
 	}

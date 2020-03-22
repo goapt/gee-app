@@ -3,11 +3,11 @@ package handler
 import (
 	"testing"
 
-	"app/test"
+	"app/testutil"
 )
 
 func TestLoginHandle(t *testing.T) {
-	req := test.NewJsonRequest("/login", map[string]interface{}{"user_name": "test", "password": "123456"})
-	resp := test.Run(t, req)
-	test.IsSuccess(t, resp)
+	req := testutil.NewJsonRequest("/login", map[string]interface{}{"user_name": "test", "password": "123456"})
+	resp := testutil.Run(t, req)
+	testutil.IsSuccess(t, resp)
 }
