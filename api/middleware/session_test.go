@@ -33,9 +33,7 @@ func TestMiddleware_Session(t *testing.T) {
 	err := sess.Save("1")
 	assert.NoError(t, err)
 
-	mid := &Middleware{
-		userRedis: rds,
-	}
+	mid := NewMiddleware(rds)
 
 	req := test.NewRequest("/dummy/impl", mid.Session(), testHandler)
 	req.Header.Add("Access-Token", accessToken)
