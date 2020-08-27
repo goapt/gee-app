@@ -15,8 +15,9 @@ import (
 	"github.com/ilibs/gosql/v2"
 )
 
-type app struct {
-	Env         string                   `toml:"env"`
+type Config struct {
+	Env         string
+	Path        string
 	AppName     string                   `toml:"app_name"`
 	StoragePath string                   `toml:"storage_path"`
 	Debug       string                   `toml:"debug"`
@@ -27,7 +28,7 @@ type app struct {
 	IsTesting   bool
 }
 
-var App = &app{
+var App = &Config{
 	StartTime: time.Now(),
 }
 
@@ -36,9 +37,8 @@ func init() {
 	load(gee.ExtCliArgs)
 }
 
-// 判断是否为测试执行
+// isTestMode
 func isTestMode() bool {
-	// test执行文件的路径后缀带.test，生产环境的可执行文件，不可能带.test后缀
 	if strings.HasSuffix(os.Args[0], ".test") {
 		return true
 	}
@@ -57,35 +57,41 @@ func isTestMode() bool {
 	return false
 }
 
-func load(args map[string]string) {
-	appPath := args["config"]
-
-	if appPath == "" {
+func getAppPath(path string) string {
+	if path == "" {
 		if isTestMode() {
 			App.IsTesting = true
 			_, file, _, _ := runtime.Caller(0)
-			appPath = filepath.Dir(filepath.Dir(file))
+			path = filepath.Dir(filepath.Dir(file))
 		} else {
-			appPath = "./"
+			path = "./"
 		}
 	}
+	return path
+}
 
-	conf, err := envconf.New(filepath.Join(appPath, "config.toml"))
+func mustCheckError(err error) {
 	if err != nil {
 		log.Fatalf("config error %s", err.Error())
 	}
+}
 
-	// load env config
-	if err := conf.Env(filepath.Join(appPath, ".env")); err != nil {
-		log.Fatal("config env error:", err)
+func load(args map[string]string) {
+	App.Path = getAppPath(args["config"])
+
+	conf, err := envconf.New(filepath.Join(App.Path, "config.toml"))
+	mustCheckError(err)
+
+	if !App.IsTesting {
+		err = conf.Env(filepath.Join(App.Path, ".env"))
+		mustCheckError(err)
 	}
 
-	if err := conf.Unmarshal(App); err != nil {
-		log.Fatal("config unmarshal error:", err)
-	}
+	err = conf.Unmarshal(App)
+	mustCheckError(err)
 
 	if !filepath.IsAbs(App.StoragePath) {
-		App.StoragePath = filepath.Join(appPath, App.StoragePath)
+		App.StoragePath = filepath.Join(App.Path, App.StoragePath)
 	}
 
 	if App.Env == "local" && !isTestMode() {
@@ -99,13 +105,7 @@ func load(args map[string]string) {
 		App.Debug = args["debug"]
 	}
 
-	if args["show-sql"] == "on" {
-		for _, d := range App.DB {
-			d.ShowSql = true
-		}
-	} else if args["show-sql"] == "off" {
-		for _, d := range App.DB {
-			d.ShowSql = false
-		}
+	for _, d := range App.DB {
+		d.ShowSql = args["show-sql"] == "on"
 	}
 }

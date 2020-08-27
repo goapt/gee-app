@@ -4,13 +4,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/goapt/gee"
 
-	"app/cmd"
 	"app/config"
+	"app/connect"
 )
 
 func main() {
-	config.Bootstrap()
-	//server setup
-	cliServ := gee.NewCliServer()
-	cliServ.Run(cmd.Commands())
+	connect.Connect(config.App)
+	cmds := Initialize()
+
+	// server setup
+	gee.NewCliServer().Run(cmds)
 }

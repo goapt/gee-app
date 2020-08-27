@@ -10,19 +10,18 @@ import (
 	"github.com/goapt/redis"
 
 	"app/config"
-	"app/errorx"
-	"app/model"
+	"app/provider/user/model"
 )
 
 // 定义session
 type Session struct {
-	client *redis.BaseRedis
+	client *redis.Redis
 	User   *model.Users
 }
 
-func New() *Session {
+func New(rds *redis.Redis) *Session {
 	return &Session{
-		client: redis.NewBaseRedis("default"),
+		client: rds,
 	}
 }
 
@@ -63,11 +62,11 @@ func (s *Session) IsLogin() bool {
 	return s.User != nil && s.User.Id != 0
 }
 
-func Init(c *gee.Context) (*Session, error) {
+func Init(c *gee.Context) *Session {
 	sess, has := c.Get("__session")
 	if !has {
-		return nil, errorx.ErrSession
+		return nil
 	}
 
-	return sess.(*Session), nil
+	return sess.(*Session)
 }

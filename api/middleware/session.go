@@ -6,18 +6,19 @@ import (
 	"github.com/goapt/gee"
 	"github.com/goapt/logger"
 
+	"app/api/response"
 	"app/api/session"
 	"app/config"
 	"app/pkg/cryptutil"
 )
 
-func parseToken(c *gee.Context) (string, error) {
+func parseToken(c *gee.Context, secret string) (string, error) {
 	token := c.Request.Header.Get("Access-Token")
 	if token == "" || len(token) < 15 {
 		return "", errors.New("access denied")
 	}
 
-	id, err := cryptutil.AesDecrypt(config.App.TokenSecret, token)
+	id, err := cryptutil.AesDecrypt(secret, token)
 
 	if err != nil {
 		return "", err
@@ -30,25 +31,24 @@ func parseToken(c *gee.Context) (string, error) {
 	return id, nil
 }
 
-var SessionMiddleware = func() gee.HandlerFunc {
-	sess := session.New()
-
+func (m *Middleware) Session() gee.HandlerFunc {
 	return func(c *gee.Context) gee.Response {
+		sess := session.New(m.userRedis)
 		var (
 			id  string
 			err error
 		)
 
-		if id, err = parseToken(c); err != nil {
+		if id, err = parseToken(c, config.App.TokenSecret); err != nil {
 			c.Abort()
-			return c.Fail(40001, err)
+			return response.ParamError(c, err.Error())
 		}
 
 		_, err = sess.Get(id)
 
 		if err != nil {
 			c.Abort()
-			return c.Fail(40002, err)
+			return response.Error(c, response.ErrAuthFailure, "登录超时请重新登录")
 		}
 
 		c.Set("__session", sess)

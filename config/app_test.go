@@ -2,10 +2,28 @@ package config
 
 import (
 	"testing"
-
-	"github.com/stretchr/testify/assert"
 )
 
-func TestLoad(t *testing.T) {
-	assert.NotEmpty(t, App.DB["default"], "Database config unmarshal error")
+func Test_getAppPath(t *testing.T) {
+	type args struct {
+		path string
+	}
+	tests := []struct {
+		name string
+		args args
+		want string
+	}{
+		{
+			name: "test",
+			args: args{path: ""},
+			want: "/",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := getAppPath(tt.args.path); got[0:1] != tt.want {
+				t.Errorf("getAppPath() = %v, want %v", got, tt.want)
+			}
+		})
+	}
 }

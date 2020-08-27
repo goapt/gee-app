@@ -8,32 +8,33 @@ import (
 	"time"
 
 	"github.com/goapt/gee"
+	"github.com/google/wire"
 
 	"app/api/handler"
 	"app/api/middleware"
 )
 
-func Engine() *gee.Engine {
+func Engine(handler *handler.Handler, middleware *middleware.Middleware) http.Handler {
 	router := gee.Default()
 	// log middleware use for all handle
-	router.POST("/login", handler.LoginHandle)
+	router.POST("/login", handler.User.Login)
 
 	// session middleware use for authorized handle
 	api := router.Group("/api")
-	api.Use(middleware.SessionMiddleware())
+	api.Use(middleware.Session())
 	{
-		api.POST("/user", handler.UserHandle)
+		api.POST("/user", handler.User.Get)
 	}
 
-	//debug handler
+	// debug handler
 	gee.DebugRoute(router.Engine)
 	return router
 }
 
-func Setup(addr string) {
+func Setup(router http.Handler, addr string) {
 	srv := &http.Server{
 		Addr:    addr,
-		Handler: Engine(),
+		Handler: router,
 	}
 	log.Println("[HTTP] Server listen:" + addr)
 	gee.RegisterShutDown(func(sig os.Signal) {
@@ -51,3 +52,5 @@ func Setup(addr string) {
 		log.Fatalf("HTTP listen: %s\n", err)
 	}
 }
+
+var ProviderSet = wire.NewSet(Engine)
