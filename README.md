@@ -7,6 +7,8 @@
 <a href="https://pkg.go.dev/github.com/goapt/gee-app"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square" alt="GoDoc"></a>
 <a href="https://opensource.org/licenses/mit-license.php" rel="nofollow"><img src="https://badges.frapsoft.com/os/mit/mit.svg?v=103"></a>
 
+具有完善的单元测试方案，支持数据库、Redis的单元测试，支持Mock HTTP Request
+
 
 ## 使用方法
 1. `git clone https://github.com/goapt/gee-app.git app`
