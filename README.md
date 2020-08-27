@@ -1,5 +1,13 @@
 # Gee Application
 
+<a href="https://github.com/goapt/gee-app/actions"><img src="https://github.com/goapt/gee-app/workflows/build/badge.svg" alt="Build Status"></a>
+<a href="https://codecov.io/gh/goapt/gee-app"><img src="https://codecov.io/gh/goapt/gee-app/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://goreportcard.com/report/github.com/goapt/gee-app"><img src="https://goreportcard.com/badge/github.com/goapt/gee-app" alt="Go Report Card
+"></a>
+<a href="https://pkg.go.dev/github.com/goapt/gee-app"><img src="https://img.shields.io/badge/go.dev-reference-007d9c?logo=go&logoColor=white&style=flat-square" alt="GoDoc"></a>
+<a href="https://opensource.org/licenses/mit-license.php" rel="nofollow"><img src="https://badges.frapsoft.com/os/mit/mit.svg?v=103"></a>
+
+
 ## 使用方法
 1. `git clone https://github.com/goapt/gee-app.git app`
 2. `go mod tidy`
