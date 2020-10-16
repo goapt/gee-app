@@ -14,27 +14,22 @@ import (
 	"app/api/middleware"
 )
 
-func Engine(handler *handler.Handler, middleware *middleware.Middleware) http.Handler {
-	router := gee.Default()
-	// log middleware use for all handle
-	router.POST("/login", handler.User.Login)
-
-	// session middleware use for authorized handle
-	api := router.Group("/api")
-	api.Use(middleware.Session())
-	{
-		api.POST("/user", handler.User.Get)
-	}
-
-	// debug handler
-	gee.DebugRoute(router.Engine)
-	return router
+type Router struct {
+	handler    *handler.Handler
+	middleware *middleware.Middleware
 }
 
-func Setup(router http.Handler, addr string) {
+func NewRouter(handler *handler.Handler, middleware *middleware.Middleware) Router {
+	return Router{
+		handler:    handler,
+		middleware: middleware,
+	}
+}
+
+func (r *Router) Run(addr string) {
 	srv := &http.Server{
 		Addr:    addr,
-		Handler: router,
+		Handler: r.route(r.handler, r.middleware),
 	}
 	log.Println("[HTTP] Server listen:" + addr)
 	gee.RegisterShutDown(func(sig os.Signal) {
@@ -53,4 +48,21 @@ func Setup(router http.Handler, addr string) {
 	}
 }
 
-var ProviderSet = wire.NewSet(Engine)
+func (r *Router) route(handler *handler.Handler, middleware *middleware.Middleware) http.Handler {
+	router := gee.Default()
+	// log middleware use for all handle
+	router.POST("/login", handler.User.Login)
+
+	// session middleware use for authorized handle
+	api := router.Group("/api")
+	api.Use(middleware.Session())
+	{
+		api.POST("/user", handler.User.Get)
+	}
+
+	// debug handler
+	gee.DebugRoute(router.Engine)
+	return router
+}
+
+var ProviderSet = wire.NewSet(NewRouter)

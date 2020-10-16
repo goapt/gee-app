@@ -1,8 +1,6 @@
 package cmd
 
 import (
-	"net/http"
-
 	"github.com/urfave/cli"
 
 	"app/api/router"
@@ -10,7 +8,7 @@ import (
 
 type HttpCmd cli.Command
 
-func NewHttp(handler http.Handler) HttpCmd {
+func NewHttp(router router.Router) HttpCmd {
 	return HttpCmd(cli.Command{
 		Name:  "http",
 		Usage: "http command eg: ./app http --addr=:8080",
@@ -24,7 +22,7 @@ func NewHttp(handler http.Handler) HttpCmd {
 			if !ctx.IsSet("addr") {
 				_ = ctx.Set("addr", ":8080")
 			}
-			router.Setup(handler, ctx.String("addr"))
+			router.Run(ctx.String("addr"))
 			return nil
 		},
 	})

@@ -6,7 +6,7 @@ Cache-Control: no-cache
 
 ###
 
-POST http://localhost:8080/api/user
+GET http://localhost:8080/api/user
 Accept: */*
 Cache-Control: no-cache
 Access-Token: 4xgCqZpNHGyEwSHshM6ocg==
