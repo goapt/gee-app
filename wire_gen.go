@@ -32,8 +32,8 @@ func Initialize() cli.Commands {
 		User: user,
 	}
 	middlewareMiddleware := middleware.NewMiddleware(redis)
-	httpHandler := router.Engine(handlerHandler, middlewareMiddleware)
-	httpCmd := cmd.NewHttp(httpHandler)
+	routerRouter := router.NewRouter(handlerHandler, middlewareMiddleware)
+	httpCmd := cmd.NewHttp(routerRouter)
 	commands := &cmd.Commands{
 		HttpCmd: httpCmd,
 	}
