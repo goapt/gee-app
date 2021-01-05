@@ -222,6 +222,7 @@ github.com/hpcloud/tail v1.0.0 h1:nfCOvKYfkgYP8hkirhJocXT2+zOD8yUNjXaWfTlyFKI=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/ilibs/gosql/v2 v2.0.5 h1:tn8qCGG4/7YFP5ZctfftcJ9ghJ2oJI5Poehxx039Ct0=
 github.com/ilibs/gosql/v2 v2.0.5/go.mod h1:kU5sf2paHLCtYaM446ZHYBxwlFo4Kuk/BGrKEJfb7x4=
+github.com/ilibs/gosql/v2 v2.1.0/go.mod h1:kU5sf2paHLCtYaM446ZHYBxwlFo4Kuk/BGrKEJfb7x4=
 github.com/ilibs/jsontime v1.0.3 h1:FkbgLJVZSfU1ZRDGyHgrl7etiIiMrQu10sZUndeK++8=
 github.com/ilibs/jsontime v1.0.3/go.mod h1:t0x7FSBsZ5UWE7Ge/4dv5wdIacTq9idHDKmu7wNIo00=
 github.com/imkira/go-interpol v1.1.0/go.mod h1:z0h2/2T3XF8kyEPpRgJ3kmNv+C43p+I/CoI+jC3w2iA=
