@@ -14,7 +14,7 @@ require (
 	github.com/goapt/logger v1.3.0
 	github.com/goapt/redis v1.3.0
 	github.com/goapt/test v1.0.0
-	github.com/google/wire v0.4.0
+	github.com/google/wire v0.5.0
 	github.com/ilibs/gosql/v2 v2.1.0
 	github.com/pelletier/go-toml v1.6.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
