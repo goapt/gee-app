@@ -18,10 +18,8 @@ func TestRecover(t *testing.T) {
 		})
 	}
 
-	mid := &Middleware{}
-
 	assert.NotPanics(t, func() {
-		req := test.NewRequest("/dummy/impl", mid.Recover(), testHandler)
+		req := test.NewRequest("/dummy/impl", gee.HandlerFunc(NewRecover()), testHandler)
 		resp, err := req.Get()
 		assert.NoError(t, err)
 		assert.Equal(t, 500, resp.Code)

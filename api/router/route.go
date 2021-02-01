@@ -55,13 +55,13 @@ func (r *Router) route(handler *handler.Handler, middleware *middleware.Middlewa
 
 	// session middleware use for authorized handle
 	api := router.Group("/api")
-	api.Use(middleware.Session())
+	api.Use(gee.HandlerFunc(middleware.Session))
 	{
 		api.POST("/user", handler.User.Get)
 	}
 
 	// debug handler
-	gee.DebugRoute(router.Engine)
+	gee.DebugRoute(router)
 	return router
 }
 

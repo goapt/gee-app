@@ -2,10 +2,12 @@ package middleware
 
 import (
 	"testing"
+	"time"
 
 	"github.com/goapt/gee"
 	"github.com/goapt/test"
 	"github.com/stretchr/testify/assert"
+	"golang.org/x/time/rate"
 )
 
 func TestLimiter(t *testing.T) {
@@ -16,10 +18,9 @@ func TestLimiter(t *testing.T) {
 		})
 	}
 
-	mid := &Middleware{}
-	limiter := mid.Limiter(2)
+	lim := rate.NewLimiter(rate.Every(time.Second), 2)
 	for i := 0; i < 5; i++ {
-		req := test.NewRequest("/dummy/impl", limiter, testHandler)
+		req := test.NewRequest("/dummy/impl", gee.HandlerFunc(NewLimiter(lim)), testHandler)
 		resp, err := req.Get()
 		assert.NoError(t, err)
 		if i > 1 {

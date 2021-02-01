@@ -3,15 +3,16 @@ package middleware
 import (
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/goapt/gee"
 	"github.com/goapt/golib/debug"
 	"github.com/goapt/logger"
 )
 
-func (m *Middleware) Recover() gee.HandlerFunc {
-	return gee.Wrap(func(c *gin.Context) {
-		defer func(c *gin.Context) {
+type Recover gee.HandlerFunc
+
+func NewRecover() Recover {
+	return func(c *gee.Context) gee.Response {
+		defer func(c *gee.Context) {
 			if rec := recover(); rec != nil {
 				logger.Data(map[string]interface{}{
 					"error": rec,
@@ -23,5 +24,6 @@ func (m *Middleware) Recover() gee.HandlerFunc {
 			}
 		}(c)
 		c.Next()
-	})
+		return nil
+	}
 }

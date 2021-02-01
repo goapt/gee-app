@@ -1,50 +1,26 @@
 package middleware
 
 import (
-	"errors"
-
 	"github.com/goapt/gee"
 	"github.com/goapt/logger"
 
 	"app/api/response"
 	"app/api/session"
-	"app/config"
-	"app/pkg/cryptutil"
+	"app/provider/user"
 )
 
-func parseToken(c *gee.Context, secret string) (string, error) {
-	token := c.Request.Header.Get("Access-Token")
-	if token == "" || len(token) < 15 {
-		return "", errors.New("access denied")
-	}
+type Session gee.HandlerFunc
 
-	id, err := cryptutil.AesDecrypt(secret, token)
-
-	if err != nil {
-		return "", err
-	}
-
-	if id == "" {
-		return "", errors.New("请先登录")
-	}
-
-	return id, nil
-}
-
-func (m *Middleware) Session() gee.HandlerFunc {
+func NewSession(rds user.Redis) Session {
 	return func(c *gee.Context) gee.Response {
-		sess := session.New(m.userRedis)
-		var (
-			id  string
-			err error
-		)
-
-		if id, err = parseToken(c, config.App.TokenSecret); err != nil {
+		sess := session.New(rds)
+		token := c.Request.Header.Get("Access-Token")
+		if token == "" {
 			c.Abort()
-			return response.ParamError(c, err.Error())
+			return response.Error(c, response.ErrAccessForbidden)
 		}
 
-		_, err = sess.Get(id)
+		_, err := sess.Get(token)
 
 		if err != nil {
 			c.Abort()
@@ -54,7 +30,7 @@ func (m *Middleware) Session() gee.HandlerFunc {
 		c.Set("__session", sess)
 		c.Next()
 
-		if err := sess.Save(id); err != nil {
+		if err := sess.Save(token); err != nil {
 			logger.Error("save session error", err)
 		}
 

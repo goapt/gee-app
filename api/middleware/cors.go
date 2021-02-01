@@ -7,20 +7,25 @@ import (
 	"github.com/goapt/gee"
 )
 
-// Cors
-func (m *Middleware) Cors() gee.HandlerFunc {
-	return gee.Wrap(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"*"},
-		AllowHeaders: []string{
-			"Origin",
-			"Content-Length",
-			"Content-Type",
-			"Access-Token",
-			"Access-Control-Allow-Origin",
-			"x-requested-with",
-		},
-		AllowCredentials: true,
-		MaxAge:           12 * time.Hour,
-	}))
+type Cors gee.HandlerFunc
+
+func NewCors() Cors {
+	return func(c *gee.Context) gee.Response {
+		cors.New(cors.Config{
+			AllowOrigins: []string{"*"},
+			AllowMethods: []string{"*"},
+			AllowHeaders: []string{
+				"Origin",
+				"Content-Length",
+				"Content-Type",
+				"Access-Token",
+				"Access-Control-Allow-Origin",
+				"x-requested-with",
+			},
+			AllowCredentials: true,
+			MaxAge:           12 * time.Hour,
+		})(c.Context)
+
+		return nil
+	}
 }

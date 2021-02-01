@@ -1,15 +1,15 @@
 package handler
 
 import (
-	"strconv"
+	"fmt"
+	"time"
 
 	"github.com/goapt/gee"
+	"github.com/goapt/golib/hashing"
 	"github.com/goapt/redis"
 
 	"app/api/response"
 	"app/api/session"
-	"app/config"
-	"app/pkg/cryptutil"
 	"app/provider/user"
 	"app/provider/user/model"
 	"app/provider/user/repo"
@@ -47,15 +47,11 @@ func (u *User) Login(c *gee.Context) gee.Response {
 		return response.ParamError(c, "password error")
 	}
 
-	token, err := cryptutil.AesEncrypt(config.App.TokenSecret, strconv.Itoa(um.Id))
-
-	if err != nil {
-		return response.Error(c, err)
-	}
+	token := hashing.Md5(fmt.Sprintf("%d-%d", um.Id, time.Now().UnixNano()))
 
 	sess := session.New(u.rds)
 	sess.User = um
-	err = sess.Save(strconv.Itoa(um.Id))
+	err = sess.Save(token)
 
 	if err != nil {
 		return response.Error(c, err)
@@ -75,14 +71,14 @@ func (u *User) Get(c *gee.Context) gee.Response {
 		return response.ParamError(c, err.Error())
 	}
 
-	user := &model.Users{
+	um := &model.Users{
 		UserName: p.UserName,
 	}
 
-	err := u.repoUser.Find(user)
+	err := u.repoUser.Find(um)
 	if err != nil {
 		return response.Error(c, err)
 	}
 
-	return c.JSON(user)
+	return c.JSON(um)
 }

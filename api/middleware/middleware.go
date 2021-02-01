@@ -1,18 +1,14 @@
 package middleware
 
 import (
-	"github.com/goapt/redis"
 	"github.com/google/wire"
-
-	"app/provider/user"
 )
 
 type Middleware struct {
-	userRedis *redis.Redis
+	Recover
+	Cors
+	Limiter
+	Session
 }
 
-func NewMiddleware(userRedis user.Redis) *Middleware {
-	return &Middleware{userRedis: userRedis}
-}
-
-var ProviderSet = wire.NewSet(NewMiddleware)
+var ProviderSet = wire.NewSet(NewCors, NewLimiter, NewRecover, NewSession, wire.Struct(new(Middleware), "*"))

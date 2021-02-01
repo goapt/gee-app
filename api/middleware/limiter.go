@@ -1,18 +1,16 @@
 package middleware
 
 import (
-	"time"
-
 	"github.com/goapt/gee"
 	"golang.org/x/time/rate"
 
 	"app/api/response"
 )
 
-// LimiterMiddleware 限流中间件
-func (m *Middleware) Limiter(maxBurstSize int) gee.HandlerFunc {
-	limiter := rate.NewLimiter(rate.Every(time.Second*1), maxBurstSize)
+type Limiter gee.HandlerFunc
 
+// NewLimiter 限流中间件
+func NewLimiter(limiter *rate.Limiter) Limiter {
 	return func(c *gee.Context) gee.Response {
 		if limiter.Allow() {
 			c.Next()

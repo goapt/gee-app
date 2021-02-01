@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"testing"
-	"time"
 
 	"github.com/goapt/gee"
 	"github.com/goapt/test"
@@ -26,16 +25,12 @@ func TestMiddleware_Session(t *testing.T) {
 		UserName: "test",
 		Password: "123123",
 		Status:   1,
-		CreateAt: time.Time{},
-		UpdateAt: time.Time{},
 	}
-	accessToken := "4xgCqZpNHGyEwSHshM6ocg=="
-	err := sess.Save("1")
+	accessToken := "testtoken123123123"
+	err := sess.Save(accessToken)
 	assert.NoError(t, err)
 
-	mid := NewMiddleware(rds)
-
-	req := test.NewRequest("/dummy/impl", mid.Session(), testHandler)
+	req := test.NewRequest("/dummy/impl", gee.HandlerFunc(NewSession(rds)), testHandler)
 	req.Header.Add("Access-Token", accessToken)
 	resp, err := req.JSON(nil)
 	assert.NoError(t, err)

@@ -16,8 +16,7 @@ func TestMiddleware_Cors(t *testing.T) {
 		})
 	}
 
-	mid := &Middleware{}
-	req := test.NewRequest("/dummy/impl", mid.Cors(), testHandler)
+	req := test.NewRequest("/dummy/impl", gee.HandlerFunc(NewCors()), testHandler)
 	resp, err := req.Get()
 	assert.NoError(t, err)
 	assert.Equal(t, `{"code":10000,"msg":"success"}`, resp.GetBodyString())
