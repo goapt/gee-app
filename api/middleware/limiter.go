@@ -1,6 +1,9 @@
 package middleware
 
 import (
+	"net/http"
+
+	"app/api/constant"
 	"github.com/goapt/gee"
 	"golang.org/x/time/rate"
 
@@ -17,6 +20,6 @@ func NewLimiter(limiter *rate.Limiter) Limiter {
 			return nil
 		}
 		c.Abort()
-		return response.Error(c, response.ErrRateLimited)
+		return response.WithStatusError(c, http.StatusTooManyRequests, constant.ErrRateLimited, "接口访问太频繁")
 	}
 }

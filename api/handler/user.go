@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"app/api/constant"
 	"github.com/goapt/gee"
 	"github.com/goapt/golib/hashing"
 	"github.com/goapt/redis"
@@ -40,7 +41,7 @@ func (u *User) Login(c *gee.Context) gee.Response {
 
 	err := u.repoUser.Find(um)
 	if err != nil {
-		return response.Error(c, err)
+		return response.WithSystemError(c, constant.ErrUserNotExists, err)
 	}
 
 	if um.Password != p.Password {
@@ -54,7 +55,7 @@ func (u *User) Login(c *gee.Context) gee.Response {
 	err = sess.Save(token)
 
 	if err != nil {
-		return response.Error(c, err)
+		return response.Error(c, constant.ErrLoginFail, "登录失败")
 	}
 
 	return c.JSON(gee.H{
@@ -77,7 +78,7 @@ func (u *User) Get(c *gee.Context) gee.Response {
 
 	err := u.repoUser.Find(um)
 	if err != nil {
-		return response.Error(c, err)
+		return response.WithSystemError(c, constant.ErrUserNotExists, err)
 	}
 
 	return c.JSON(um)

@@ -4,6 +4,17 @@ debug = "off"
 storage_path = "./storage/"
 token_secret = "abcdefghijklmnop"
 
+
+[log]
+    log_mode = "file"
+    log_path = "./storage/logs/"
+    log_format = "json"
+    log_level = "info"
+    log_max_files = 15
+    log_sentry_dsn = ""
+    log_sentry_type = "go"
+    log_detail = true
+
 [database]
     [database.default]
     enable = true

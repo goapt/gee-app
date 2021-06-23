@@ -11,6 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/goapt/envconf"
 	"github.com/goapt/gee"
+	"github.com/goapt/logger"
 	"github.com/goapt/redis"
 	"github.com/ilibs/gosql/v2"
 )
@@ -21,6 +22,7 @@ type Config struct {
 	AppName     string                   `toml:"app_name"`
 	StoragePath string                   `toml:"storage_path"`
 	Debug       string                   `toml:"debug"`
+	Log         logger.Config            `toml:"log"`
 	TokenSecret string                   `toml:"token_secret"`
 	DB          map[string]*gosql.Config `toml:"database"`
 	Redis       map[string]redis.Config  `toml:"redis"`

@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"app/api/constant"
 	"github.com/goapt/gee"
 	"github.com/goapt/logger"
 
@@ -17,14 +18,14 @@ func NewSession(rds user.Redis) Session {
 		token := c.Request.Header.Get("Access-Token")
 		if token == "" {
 			c.Abort()
-			return response.Error(c, response.ErrAccessForbidden)
+			return response.Error(c, constant.ErrAccessForbidden, "非法访问")
 		}
 
 		_, err := sess.Get(token)
 
 		if err != nil {
 			c.Abort()
-			return response.Error(c, response.ErrAuthFailure, "登录超时请重新登录")
+			return response.SystemError(c, "登录超时请重新登录")
 		}
 
 		c.Set("__session", sess)

@@ -11,14 +11,14 @@ require (
 	github.com/goapt/envconf v0.0.4
 	github.com/goapt/gee v1.4.2
 	github.com/goapt/golib v1.0.5
-	github.com/goapt/logger v1.3.0
+	github.com/goapt/logger v1.3.1
 	github.com/goapt/redis v1.3.1
 	github.com/goapt/test v1.0.0
 	github.com/google/wire v0.5.0
 	github.com/ilibs/gosql/v2 v2.1.0
 	github.com/jmoiron/sqlx v1.3.1 // indirect
-	github.com/sirupsen/logrus v1.7.0 // indirect
 	github.com/stretchr/testify v1.7.0
+	github.com/tidwall/gjson v1.8.0
 	github.com/urfave/cli v1.22.5
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 )
