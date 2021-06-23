@@ -49,10 +49,13 @@ func (r *Router) Run(addr string) {
 }
 
 func (r *Router) route(handler *handler.Handler, middleware *middleware.Middleware) http.Handler {
-	router := gee.Default()
+	router := gee.New()
+	// panic recover middleware
+	router.Use(gee.HandlerFunc(r.middleware.Recover))
 	// log middleware use for all handle
-	router.POST("/login", handler.User.Login)
+	router.Use(gee.HandlerFunc(r.middleware.AccessLog))
 
+	router.POST("/login", handler.User.Login)
 	// session middleware use for authorized handle
 	api := router.Group("/api")
 	api.Use(gee.HandlerFunc(middleware.Session))

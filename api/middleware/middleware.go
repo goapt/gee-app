@@ -5,10 +5,11 @@ import (
 )
 
 type Middleware struct {
+	AccessLog
 	Recover
 	Cors
 	Limiter
 	Session
 }
 
-var ProviderSet = wire.NewSet(NewCors, NewLimiter, NewRecover, NewSession, wire.Struct(new(Middleware), "*"))
+var ProviderSet = wire.NewSet(NewCors, NewLimiter, NewRecover, NewSession, NewAccessLog, wire.Struct(new(Middleware), "*"))

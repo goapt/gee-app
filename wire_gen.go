@@ -31,16 +31,19 @@ func Initialize() cli.Commands {
 	handlerHandler := &handler.Handler{
 		User: user,
 	}
+	accessLogger := connect.NewAccessLogger()
+	accessLog := middleware.NewAccessLog(accessLogger)
 	middlewareRecover := middleware.NewRecover()
 	cors := middleware.NewCors()
 	limiter := connect.NewRateLimiter()
 	middlewareLimiter := middleware.NewLimiter(limiter)
 	session := middleware.NewSession(redis)
 	middlewareMiddleware := &middleware.Middleware{
-		Recover: middlewareRecover,
-		Cors:    cors,
-		Limiter: middlewareLimiter,
-		Session: session,
+		AccessLog: accessLog,
+		Recover:   middlewareRecover,
+		Cors:      cors,
+		Limiter:   middlewareLimiter,
+		Session:   session,
 	}
 	routerRouter := router.NewRouter(handlerHandler, middlewareMiddleware)
 	httpCmd := cmd.NewHttp(routerRouter)
