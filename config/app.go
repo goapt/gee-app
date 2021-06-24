@@ -23,7 +23,6 @@ type Config struct {
 	StoragePath string                   `toml:"storage_path"`
 	Debug       string                   `toml:"debug"`
 	Log         logger.Config            `toml:"log"`
-	TokenSecret string                   `toml:"token_secret"`
 	DB          map[string]*gosql.Config `toml:"database"`
 	Redis       map[string]redis.Config  `toml:"redis"`
 	StartTime   time.Time

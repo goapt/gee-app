@@ -2,8 +2,6 @@ env = "local"
 app_name = "example"
 debug = "off"
 storage_path = "./storage/"
-token_secret = "abcdefghijklmnop"
-
 
 [log]
     log_mode = "file"

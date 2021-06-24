@@ -4,7 +4,7 @@ package main
 
 import (
 	"github.com/google/wire"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 
 	"app/api/handler"
 	"app/api/middleware"

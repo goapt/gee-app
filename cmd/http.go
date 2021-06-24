@@ -1,19 +1,19 @@
 package cmd
 
 import (
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 
 	"app/api/router"
 )
 
-type HttpCmd cli.Command
+type HttpCmd *cli.Command
 
 func NewHttp(router router.Router) HttpCmd {
-	return HttpCmd(cli.Command{
+	return &cli.Command{
 		Name:  "http",
 		Usage: "http command eg: ./app http --addr=:8080",
 		Flags: []cli.Flag{
-			cli.StringFlag{
+			&cli.StringFlag{
 				Name:  "addr",
 				Usage: "http listen ip:port",
 			},
@@ -25,5 +25,5 @@ func NewHttp(router router.Router) HttpCmd {
 			router.Run(ctx.String("addr"))
 			return nil
 		},
-	})
+	}
 }
