@@ -311,8 +311,8 @@ github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpO
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ianlancetaylor/demangle v0.0.0-20200824232613-28f6c0f3b639/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=
 github.com/ilibs/gosql/v2 v2.0.5/go.mod h1:kU5sf2paHLCtYaM446ZHYBxwlFo4Kuk/BGrKEJfb7x4=
-github.com/ilibs/gosql/v2 v2.1.1 h1:LTV7OczHXKG2XRRa0OCXeDNouOHFE+zPEAgVgr5f2yY=
-github.com/ilibs/gosql/v2 v2.1.1/go.mod h1:FqK1UpRwNTK24aI2f+Mz4hxIu3P7BDmK+OX7rxwqhow=
+github.com/ilibs/gosql/v2 v2.1.2 h1:j+qBYWz1YXkLfxeUnyB7Fsu+BxJer16Iv8GEVJizCRo=
+github.com/ilibs/gosql/v2 v2.1.2/go.mod h1:FqK1UpRwNTK24aI2f+Mz4hxIu3P7BDmK+OX7rxwqhow=
 github.com/ilibs/jsontime v1.0.3/go.mod h1:t0x7FSBsZ5UWE7Ge/4dv5wdIacTq9idHDKmu7wNIo00=
 github.com/ilibs/jsontime v1.0.4 h1:p0iO3nxeSlY4jsn6jztgbdCbQ73eGE5J7o8vQQYFrXQ=
 github.com/ilibs/jsontime v1.0.4/go.mod h1:4LY/RG/MYyr0Y3qMr8fuYimI8YULT72FoUz3ZLYmYCU=
