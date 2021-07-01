@@ -17,7 +17,7 @@ require (
 	github.com/google/wire v0.5.0
 	github.com/ilibs/gosql/v2 v2.1.2
 	github.com/stretchr/testify v1.7.0
-	github.com/tidwall/gjson v1.8.0
+	github.com/tidwall/gjson v1.8.1
 	github.com/urfave/cli/v2 v2.3.0
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 )
