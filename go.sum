@@ -180,8 +180,8 @@ github.com/goapt/dotenv v0.0.1/go.mod h1:E+eFec2nYn8NVJX7UFRUt90SS0u5rkLEnnew6cu
 github.com/goapt/envconf v0.0.4 h1:XxmMukwzxOi1PnV8/4bbj3jdEmOcTPSwG4EKKjBZWrM=
 github.com/goapt/envconf v0.0.4/go.mod h1:utk3XiF1XtajM3cEMMwV9ppi5mP3v4Oi3Sd0osbRtnU=
 github.com/goapt/gee v1.4.0/go.mod h1:o8W9rJyS65sPs01b7MnoplutJdAnHcF52Es5gXaAxr8=
-github.com/goapt/gee v1.5.0 h1:HRXHbSav049l/tZomL1PixbE0fcZoU7vsXD7jGjXw6c=
-github.com/goapt/gee v1.5.0/go.mod h1:lvYx3irZr0vL+7o+YIMNK1iQ77Fii0+p9fzGjsco0ls=
+github.com/goapt/gee v1.5.1 h1:6xVc8d7frJOq5MKHjUDfBfQv7bLwHwpzDmQIli1r4jc=
+github.com/goapt/gee v1.5.1/go.mod h1:lvYx3irZr0vL+7o+YIMNK1iQ77Fii0+p9fzGjsco0ls=
 github.com/goapt/golib v1.0.5 h1:NsjvPiY+ft6L2NKiNzDog5wxdcbZrpo9wVKcVXvG/t4=
 github.com/goapt/golib v1.0.5/go.mod h1:SJyHBEnAntqQteA3pmFZTYz+KlpZ9zMYXWR8ZBniz6I=
 github.com/goapt/logger v1.4.1 h1:VW5WR4EYQQw5zvZ1cjOXlDFhqWep7+mv1VscOfmEgVo=
