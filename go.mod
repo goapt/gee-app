@@ -11,7 +11,7 @@ require (
 	github.com/goapt/envconf v0.0.4
 	github.com/goapt/gee v1.5.0
 	github.com/goapt/golib v1.0.5
-	github.com/goapt/logger v1.3.3
+	github.com/goapt/logger v1.4.1
 	github.com/goapt/redis v1.3.1
 	github.com/goapt/test v1.0.0
 	github.com/google/wire v0.5.0
