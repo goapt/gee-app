@@ -5,13 +5,12 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gin-gonic/gin"
 	"github.com/goapt/gee"
 	"github.com/stretchr/testify/assert"
 )
 
 func init() {
-	gin.SetMode(gin.TestMode)
+	gee.SetMode(gee.TestMode)
 }
 
 func TestErrorResponse_Render(t *testing.T) {

@@ -35,5 +35,5 @@ func TestMiddleware_Session(t *testing.T) {
 	resp, err := req.JSON(nil)
 	assert.NoError(t, err)
 	assert.Equal(t, 200, resp.Code)
-	assert.Equal(t, `test`, resp.GetJsonBody("user_name").String())
+	assert.Equal(t, `test`, resp.GetJsonPath("user_name").String())
 }

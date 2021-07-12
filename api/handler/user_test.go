@@ -62,6 +62,6 @@ func TestUser_Login(t *testing.T) {
 		resp, err := req.JSON(map[string]interface{}{"user_name": "test", "password": "123123"})
 		require.NoError(t, err)
 		require.Equal(t, http.StatusOK, resp.Code)
-		require.Equal(t, 32, len(resp.GetJsonBody("access_token").String()))
+		require.Equal(t, 32, len(resp.GetJsonPath("access_token").String()))
 	})
 }

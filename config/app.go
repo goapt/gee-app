@@ -8,7 +8,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/goapt/envconf"
 	"github.com/goapt/gee"
 	"github.com/goapt/logger"
@@ -96,9 +95,9 @@ func load(args map[string]string) {
 	}
 
 	if App.Env == "local" && !isTestMode() {
-		gin.SetMode(gin.DebugMode)
+		gee.SetMode(gee.DebugMode)
 	} else {
-		gin.SetMode(gin.ReleaseMode)
+		gee.SetMode(gee.ReleaseMode)
 	}
 
 	// debug model

@@ -43,7 +43,7 @@ func Error(c *gee.Context, code, msg string) gee.Response {
 
 // WithStatusError 设置错误的http status
 func WithStatusError(c *gee.Context, status int, code, msg string) gee.Response {
-	c.HttpStatus = status
+	c.Status(status)
 	return c.JSON(&Response{
 		Code: code,
 		Msg:  msg,
