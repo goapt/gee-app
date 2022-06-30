@@ -14,7 +14,7 @@ require (
 	github.com/goapt/redis v1.3.1
 	github.com/goapt/test v1.0.1
 	github.com/google/wire v0.5.0
-	github.com/ilibs/gosql/v2 v2.1.3
+	github.com/ilibs/gosql/v2 v2.1.4
 	github.com/stretchr/testify v1.7.5
 	github.com/tidwall/gjson v1.14.1
 	github.com/urfave/cli/v2 v2.10.3
