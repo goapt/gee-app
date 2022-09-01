@@ -17,6 +17,6 @@ require (
 	github.com/ilibs/gosql/v2 v2.1.4
 	github.com/stretchr/testify v1.8.0
 	github.com/tidwall/gjson v1.14.1
-	github.com/urfave/cli/v2 v2.11.2
+	github.com/urfave/cli/v2 v2.14.0
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
 )
