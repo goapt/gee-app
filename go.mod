@@ -18,5 +18,5 @@ require (
 	github.com/stretchr/testify v1.8.1
 	github.com/tidwall/gjson v1.14.4
 	github.com/urfave/cli/v2 v2.24.3
-	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324
+	golang.org/x/time v0.3.0
 )
