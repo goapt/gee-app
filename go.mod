@@ -15,7 +15,7 @@ require (
 	github.com/goapt/test v1.0.1
 	github.com/google/wire v0.5.0
 	github.com/ilibs/gosql/v2 v2.1.4
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	github.com/tidwall/gjson v1.14.4
 	github.com/urfave/cli/v2 v2.25.0
 	golang.org/x/time v0.3.0
