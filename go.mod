@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/getsentry/sentry-go v0.9.0 // indirect
 	github.com/gin-contrib/cors v1.4.0
-	github.com/go-sql-driver/mysql v1.7.0
+	github.com/go-sql-driver/mysql v1.7.1
 	github.com/goapt/dbunit v0.0.3
 	github.com/goapt/envconf v0.0.4
 	github.com/goapt/gee v1.6.0
