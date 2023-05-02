@@ -190,8 +190,8 @@ github.com/goapt/envconf v0.0.4/go.mod h1:utk3XiF1XtajM3cEMMwV9ppi5mP3v4Oi3Sd0os
 github.com/goapt/gee v1.5.1/go.mod h1:lvYx3irZr0vL+7o+YIMNK1iQ77Fii0+p9fzGjsco0ls=
 github.com/goapt/gee v1.6.0 h1:IatlmtpNORHGM9qZRwzRSBwxmN0ZnhHayPQUa4qtIqE=
 github.com/goapt/gee v1.6.0/go.mod h1:XS/EIRyUeMA+tG/dAE0gFrED8fQrq1QlrKtZ3Ytvcvk=
-github.com/goapt/golib v1.0.5 h1:NsjvPiY+ft6L2NKiNzDog5wxdcbZrpo9wVKcVXvG/t4=
-github.com/goapt/golib v1.0.5/go.mod h1:SJyHBEnAntqQteA3pmFZTYz+KlpZ9zMYXWR8ZBniz6I=
+github.com/goapt/golib v1.1.1 h1:xD0xzwwSNmtiw2sR8ESpxNDPRqTUIoSzMnu4SzkinTI=
+github.com/goapt/golib v1.1.1/go.mod h1:8aL+p7MVW5ErEqkqQSZ83NeYKeo6pUezUqFl/eN0S+A=
 github.com/goapt/logger v1.4.2 h1:A9uXfJxkqgakqMz6hEmfWa9IUJ5olgmxhjHm0onqcTk=
 github.com/goapt/logger v1.4.2/go.mod h1:vf2kjJrRIUIyYidimHO3UcjHQ81Mn7MCB8A0/kun8RU=
 github.com/goapt/logrus-sentry-hook v0.0.4 h1:xnqrJy8qnvbAENwAmBr9Qy+hp4FwnHtp48kN6/BtSUo=
@@ -534,8 +534,8 @@ github.com/stretchr/testify v1.6.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
-github.com/stretchr/testify v1.8.1 h1:w7B6lhMri9wdJUVmEZPGGhZzrYTPvgJArz7wNPgYKsk=
-github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
+github.com/stretchr/testify v1.8.2 h1:+h33VjcLVPDHtOdpUCuF+7gSuG3yGIftsP1YvFihtJ8=
+github.com/stretchr/testify v1.8.2/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/subosito/gotenv v1.2.0 h1:Slr1R9HxAlEKefgq5jn9U+DnETlIUa6HfgEzj0g5d7s=
 github.com/subosito/gotenv v1.2.0/go.mod h1:N0PQaV/YGNqwC0u51sEeR/aUtSLEXKX9iv69rRypqCw=
 github.com/tidwall/gjson v1.8.1/go.mod h1:5/xDoumyyDNerp2U36lyolv46b3uF/9Bu6OfyQ9GImk=
